@@ -7,6 +7,7 @@ from langserve import add_routes
 from middleware import add_cors
 from notes import transcript, soap_note
 import uvicorn
+import os
 
 
 app = FastAPI(
@@ -14,8 +15,8 @@ app = FastAPI(
     version=VERSION,
     description=DESCRIPTION
 )
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
+static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
+app.mount("", StaticFiles(directory="static"), name="static")
 
 @app.get("/") 
 def serve_frontend():
