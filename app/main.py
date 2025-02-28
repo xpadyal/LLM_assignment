@@ -20,7 +20,7 @@ app.mount("", StaticFiles(directory=static_dir), name="static")
 
 @app.get("/") 
 def serve_frontend():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(static_dir, "index.html"))
 
 
 #Fetch the notes(trnascript, soap notes)
