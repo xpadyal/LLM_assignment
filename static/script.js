@@ -20,7 +20,7 @@
     // Fetch the transcript and SOAP note.
     async function fetchNotes() {
         try {
-            const response = await fetch('http://localhost:8000/notes');
+            const response = await fetch('/notes');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -146,7 +146,7 @@
       conversation.push({ role: 'user', content: message });
     
       try {
-          const response = await fetch('http://localhost:8000/ask/invoke', {
+          const response = await fetch('/ask/invoke', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
