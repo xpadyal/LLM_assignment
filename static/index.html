@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepScribe Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Left conversation panel -->
+    <div id="left-panel">
+      <div class="conversation">Conversation 1</div>
+      <!-- Add more conversation tabs as needed -->
+    </div>
+  
+    <!-- Main chat area -->
+    <div id="main-chat">
+      <div id="chat-header">Deepscribe Helper</div>
+      <div id="chat-window">
+        <!-- Welcome message with typewriter effect -->
+        <div id="welcome-message" class="message assistant"></div>
+      </div>
+      <div id="chat-input">
+        <textarea id="userInput" rows="2" placeholder="Type your message here..."></textarea>
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+    <!-- Modal for displaying notes -->
+    <div id="notes-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
