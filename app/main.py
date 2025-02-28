@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from config import TITLE, VERSION, DESCRIPTION, HOST, PORT
+from config import TITLE, VERSION, DESCRIPTION,PORT
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from endpoints import wrapped_chain
@@ -16,7 +16,7 @@ app = FastAPI(
     description=DESCRIPTION
 )
 static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
-app.mount("", StaticFiles(directory="static"), name="static")
+app.mount("", StaticFiles(directory=static_dir), name="static")
 
 @app.get("/") 
 def serve_frontend():
@@ -37,4 +37,4 @@ add_cors(app)
 
 if __name__ == "__main__":
       # Render dynamically sets PORT
-    uvicorn.run("main:app", host="0.0.0.0", port=PORT, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=PORT)
