@@ -90,30 +90,30 @@
 
 
       .highlight {
-        background-color: yellow; /* Change this to your desired highlight color */
-        font-weight: bold; /* Optional: make the text bold */
+        background-color: yellow; 
+        font-weight: bold; 
     }
 
     /* Modal styles */
     .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
         left: 0;
         top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
     }
 
     .modal-content {
         background-color: #fefefe;
-        margin: 15% auto; /* 15% from the top and centered */
+        margin: 15% auto; 
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
+        width: 80%; 
     }
 
     .close-button {
@@ -130,44 +130,43 @@
         cursor: pointer;
     }
 
-/* Add this to your style.css */
+
 #chat-window {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align all items to the left */
+    align-items: flex-start;
 }
 
 .message-wrapper {
-    margin: 10px 0; /* Space between messages */
-    padding: 5px 10px; /* Reduce vertical padding to 5px */
-    border-radius: 15px; /* Rounded corners */
-    display: inline-block; /* Allow width to fit content */
-    max-width: 60%; /* Optional: limit width to prevent overflow */
-    position: relative; /* For positioning */
+    margin: 10px 0; 
+    padding: 5px 10px; 
+    border-radius: 15px; 
+    display: inline-block; 
+    max-width: 60%; 
+    position: relative;
 }
 
 .message-wrapper.user {
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)); /* Gradient with transparency */
-    color: white; /* User message text color */
-    align-self: flex-start; /* Align user messages to the left */
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)); 
+    color: white; 
+    align-self: flex-start; 
     height: 28px;
     max-height: auto;
 }
 
 .message-wrapper.assistant {
-    background-color: #e9ecef; /* Assistant message background */
-    color: black; /* Assistant message text color */
-    align-self: flex-end; /* Align assistant messages to the right */
+    background-color: #e9ecef; 
+    color: black; 
+    align-self: flex-end; 
 }
-
 .highlight {
-    background-color: yellow; /* Change this to your desired highlight color */
-    font-weight: bold; /* Optional: make the text bold */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for effects */
+    background-color: yellow; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 .highlight:hover {
-    transform: scale(1.05); /* Slightly enlarge the text on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

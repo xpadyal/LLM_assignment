@@ -1,4 +1,4 @@
-    // Typewriter effect for welcome message
+
     const welcomeText = "Welcome to Deepscribe Helper. How can I assist you today?";
     const welcomeElem = document.getElementById("welcome-message");
     let charIndex = 0;
@@ -17,7 +17,7 @@
     let transcript = '';
     let soapNote = '';
 
-    // Fetch the transcript and SOAP note from the server
+    // Fetch the transcript and SOAP note.
     async function fetchNotes() {
         try {
             const response = await fetch('http://localhost:8000/notes');
@@ -26,15 +26,12 @@
             }
             const data = await response.json();
             
-    
-            // Ensure 'transcript' exists and assign it
             if (data.transcript) {
                 transcript = data.transcript;
             } else {
                 console.error('Transcript data is missing in the API response');
             }
     
-            // Assign the soap_note if it exists
             soapNote = data.soap_note || '';
         } catch (error) {
             console.error('Failed to fetch notes:', error);
@@ -44,7 +41,7 @@
     // Call the fetchNotes function when the window loads
     window.onload = async function() {
         await fetchNotes();
-        typeWriter(); // Call typeWriter after fetching notes
+        typeWriter(); 
     };
 
     // Function to highlight words wrapped with asterisks
@@ -54,18 +51,13 @@
 
     // Function to show details (Transcript or SOAP notes)
     function showDetails(term) {
-        console.log('showDetails called with term:', term); // Log the term received
     
         // Normalize the term: trim whitespace, convert to lowercase
         const normalizedTerm = term.trim().toLowerCase();
-        console.log('Normalized term:', normalizedTerm);
     
         // Normalize transcript and SOAP note
         const normalizedTranscript = transcript.toLowerCase();
         const normalizedSoapNote = soapNote.toLowerCase();
-    
-        console.log('Normalized Transcript:', normalizedTranscript);
-        console.log('Normalized SOAP Note:', normalizedSoapNote);
     
         // Split the term into individual words and filter out common stop words
         const stopWords = new Set(['not','the', 'and', 'is', 'in', 'it', 'to', 'of', 'for', 'with', 'on', 'at', 'by', 'this', 'that', 'have', 'has', 'had']);
@@ -92,13 +84,13 @@
     
         if (allWordsInTranscript) {
             details = `Transcript: ${highlightedTranscript}`;
-            console.log('Details found in transcript.'); // Log if details are found in transcript
+            
         } else if (allWordsInSoapNote) {
             details = `SOAP Note: ${highlightedSoapNote}`;
-            console.log('Details found in SOAP note.'); // Log if details are found in SOAP note
+        
         } else {
             details = 'No details found.';
-            console.log('No details found for the term.'); // Log if no details are found
+        
         }
 
         // Set the modal body content
@@ -108,7 +100,7 @@
         const modal = document.getElementById('notes-modal');
         modal.style.display = "block";
 
-        // Close the modal when the user clicks on <span> (x)
+        // Close the modal
         const closeButton = document.querySelector('.close-button');
         closeButton.onclick = function() {
             modal.style.display = "none";
@@ -131,7 +123,6 @@
         const messageElem = document.createElement("div");
         messageElem.className = "message " + (isUser ? "user" : "assistant");
 
-        // Highlight the message
         messageElem.innerHTML = highlightText(message); // Use highlightText to format the message
 
         // Append the message element to the wrapper
@@ -142,7 +133,7 @@
         document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
     }
 
-    // Send message and handle the API response
+    // Send message to the API
     async function sendMessage() {
       const input = document.getElementById('userInput');
       const message = input.value.trim();
@@ -179,10 +170,9 @@
       }
     }
     
-    // Attach event listener to the send button
     document.getElementById("send-button").addEventListener("click", sendMessage);
     
-    // Allow sending message by pressing Enter (without Shift)
+    // Allow sending message by pressing Enter.
     document.getElementById("userInput").addEventListener("keypress", function(e) {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();

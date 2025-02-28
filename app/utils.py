@@ -1,10 +1,10 @@
 from typing import List, Dict, Union
 from langchain_core.messages import HumanMessage, AIMessage
 
+
+# Convert dictionary messages to LangChain message objects.
 def convert_messages(messages: List[Dict[str, str]]) -> List[Union[HumanMessage, AIMessage]]:
-    """
-    Convert dictionary messages to LangChain message objects.
-    """
+    
     converted = []
     for msg in messages:
         role = msg.get("role")

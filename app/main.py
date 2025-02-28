@@ -12,7 +12,7 @@ app = FastAPI(
     description=DESCRIPTION
 )
 
-# Use add_routes from langserve for all endpoints
+#Fetch the notes(trnascript, soap notes)
 add_routes(app, wrapped_chain, path="/ask")
 @app.get("/notes")
 async def get_notes():
@@ -21,7 +21,7 @@ async def get_notes():
         "soap_note": soap_note
     }
 
-# Add CORS middleware
+
 add_cors(app)
 
 if __name__ == "__main__":

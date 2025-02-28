@@ -3,17 +3,13 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from notes import soap_note
 from vector_store import get_relevant_chunks, init_vector_store
 
-# Initialize the model and vector store once.
+# Initialize the model and vector store.
 model = ChatGroq(model="llama3-70B-8192", temperature=0.2)
 vector_store = init_vector_store()
 
+
+# Process the incoming chat messages using a custom chain.
 def custom_chain(messages: list) -> dict:
-    """
-    Process the incoming chat messages using a custom chain.
-    
-    The chain builds a dynamic system prompt that includes relevant transcript context
-    and the SOAP note, then routes the prompt through the model.
-    """
     query = messages[-1]["content"]
     dynamic_context = get_relevant_chunks(query, vector_store)
 
