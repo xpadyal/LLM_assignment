@@ -17,7 +17,7 @@ The DeepScribe Chat Assistant is a FastAPI application designed to facilitate qu
 - **GROQ** Used Groq API for Faster inference. Used llama3-70B as LLM model.
 - **VectorDB**: Used chunking and similarity search for handling large information like long transcript.
 - **Conversation Memory**: Passing message history as context for multiturn conversation and getting context-aware response for follow up questions.
-- **Handles Incomplete Information** Handles incomplete information by suggesting the user possible outputs but also mentions that the info was incomplete.
+- **Handles Incomplete Information** Handles incomplete information by gracefully declining to answer while also providing as much as possible detail about it.
 - **Langserve and Langchain Ecosystem** Built on using langchain for efficient development and langserve for building API.
 - **Docker** Containerised the application using docker for seemless deployment.
 - **CORS Support**: The application supports Cross-Origin Resource Sharing (CORS) for frontend integration.
