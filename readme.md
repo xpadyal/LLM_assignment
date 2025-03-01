@@ -29,6 +29,10 @@ The DeepScribe Chat Assistant is a FastAPI application designed to facilitate qu
 Before running the application, make sure you have the following installed:
 
 - Docker: [Install Docker](https://docs.docker.com/get-docker/)
+- **API Keys**: You need valid API keys for both the GROQ and OpenAI APIs to run the application.
+
+   - [Get a GROQ API key](https://groq.com/)
+   - [Get an OpenAI API key](https://platform.openai.com/)
 
 ## Quick Start
 
@@ -49,7 +53,27 @@ docker pull sahilpadyal237/deepscribe-llm:latest
 After the image is downloaded, you can run the Docker container. To do this, use the following command:
 
 ```bash
-docker run -d -p 8080:80 sahilpadyal237/deepscribe-llm:latest
+docker run -d -p 8000:8000 \
+  -e GROQ_API_KEY=<your_groq_api_key> \
+  -e OPENAI_API_KEY=<your_openai_api_key> \
+  sahilpadyal237/deepscribe-llm:latest
+
+```
+
+For macOS (ARM64/Apple Silicon)
+```bash
+docker run --platform linux/arm64 -d -p 8000:8000 \
+  -e GROQ_API_KEY=<your_groq_api_key> \
+  -e OPENAI_API_KEY=<your_openai_api_key> \
+  sahilpadyal237/deepscribe-llm:latest
+```
+
+For macOS (Intel x86_64)
+```bash
+docker run --platform linux/amd64 -d -p 8000:8000 \
+  -e GROQ_API_KEY=<your_groq_api_key> \
+  -e OPENAI_API_KEY=<your_openai_api_key> \
+  sahilpadyal237/deepscribe-llm:latest
 ```
 
 ## Option 2: Run from Github
