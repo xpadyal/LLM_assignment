@@ -153,41 +153,6 @@ uvicorn main:app --reload
    
    ```
 
-## Using Docker(Suggested)
-
-### Prerequisites
-
-Before running the application, make sure you have the following installed:
-
-- Docker: [Install Docker](https://docs.docker.com/get-docker/)
-
-## Quick Start
-
-To get the app running with Docker, follow these steps:
-
-### 1. **Clone the Repository**
-
-```bash
-   git clone https://github.com/xpadyal/LLM_assignment.git
-   cd LLM_assignment
-```
-
-### 2. **Build the Docker Image**
-```bash
-docker build -t deepscribe-llm .
-```
-### 3. **Run the Docker Image**
-```bash
-docker run -d -p 8080:80 deepscribe-llm
-```
-
-### 4. **Access the APP**'
-
-```bash
-http://localhost:8080
-```
-
-
 ## API Endpoints
 
 - **GET /**: Serves the frontend application.
