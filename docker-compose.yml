@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend Service
+  backend:
+    build: ./app                # Build the FastAPI app from the app directory
+    ports:
+      - "8000:8000"              # Expose FastAPI on port 8000
+    volumes:
+      - ./app:/app               # Mount app directory to container to reflect code changes
+      - ./static:/static         # Mount static folder to serve frontend files (if applicable)
+    environment:
+      - STATIC_DIR=/static       # Define where FastAPI should serve static files from
+    depends_on:
+      - static-frontend          # Wait for frontend (if needed)
+
+  # Frontend Static Files (if serving via FastAPI)
+  static-frontend:
+    image: nginx:alpine          # Use Nginx to serve static files (or FastAPI can do this)
+    volumes:
+      - ./static:/usr/share/nginx/html # Mount static files into the container
+    ports:
+      - "8080:80"                # Expose the frontend on port 8080
+    depends_on:
+      - backend                  # Make sure backend starts first (if needed)

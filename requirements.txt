@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-dotenv
+langchain
+langchain-groq
+langchain-core
+langchain-text-splitters
+langchain-openai
+langchain-chroma
+langserve
+sse_starlette
