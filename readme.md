@@ -194,7 +194,7 @@ In my implementation of the Large Language Model (LLM) within the DeepScribe Cha
    ```
 
 2. **Vector Store Initialization**:
-   - I set up a vector store using the `init_vector_store` function, which prepares the model to retrieve relevant chunks of text based on user queries. This vector store is essential for providing context to the LLM, allowing it to generate informed responses.
+   - I set up a vector store using the `init_vector_store` function, which prepares the model to retrieve relevant chunks of text based on user queries. This vector store is essential for providing context to the LLM, allowing it to generate informed responses and also for handling huge amount of text.
    ```python
    vector_store = init_vector_store()
    ```
