@@ -84,6 +84,11 @@ docker run --platform linux/amd64 -d -p 8000:8000 \
    git clone https://github.com/xpadyal/LLM_assignment.git
    cd LLM_assignment
 ```
+### 2. **Add API keys to .env **
+```bash
+   GROQ_API_KEY
+   OPENAI_API_KEY
+```
 
 ### 2. **Build the Docker Image**
 ```bash
